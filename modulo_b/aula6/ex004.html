@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            font-size: 2em;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <script>
+        var nome = window.prompt('Qual é o seu nome?')
+
+        // lenght para indicar a quantidade de caracteres
+        document.write(`Olá, <strong>${nome}</strong>! Seu eu nome tem ${nome.length} letras.</br>`) 
+
+        //converte todos os caracteres de uma string para MAIÚSCULAS, levando em conta o idioma/localização (locale).
+        document.write(`Seu nome em maiúsculas é ${nome.toLocaleUpperCase()}.</br>`)
+
+        //converte todo os caracteres de una string para minúsculas, levando em conta o idioma/localização (locale).
+        document.write(`Seu nome em minúsculas é ${nome.toLocaleLowerCase()}.`)
+
+        //POR QUE USAR ( )??
+        /*Se usa ( ) porque é um método, e métodos são funções. Em .lenght (propriedade) não se usa ( ) porque a quantidade de caracteres é uma característica da String. Enquanto .toLocaleUpperCase() (método) precisa de ( ) porque chama uma função que transforma a String.*/
+        // Propriedades - são informações.
+        //Métodos - são ações/funções.
+    </script>
+</body>
+</html>

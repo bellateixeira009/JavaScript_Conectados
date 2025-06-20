@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somando Números</title>
+
+    <style>
+        body{
+            font: normal 1.5em Arial;
+        }
+
+        input{
+            font: normal 1.5em Arial;
+            width: 100px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Somando Valores</h1>
+
+    //Campos de entrada (Inputs):
+    // Dois inputs do tipo número, onde o usuário vai digitar os valores
+    <input type="number" name="txtn1" id="txtn1"> +
+    <input type="number" name="txtn2" id="txtn2">
+
+    //Botão de ação, que ao ser clicado, chama a função JavaScript chamada somar().
+    <input type="button" value="Somar" onclick="somar()">
+    <div id="res">Resultado</div>
+    <script>
+
+    //Declaração da função chamada quando o usuário clica no botão.
+        function somar(){
+            var tn1 = window.document.getElementById('txtn1')
+            var tn2 = window.document.querySelector('input#txtn2')
+            var res = window.document.getElementById('res')
+
+            //Convertendo os valores para número
+
+            //.value: Pega o conteúdo digitado nos inputs (que vem como texto).
+            //Number(...): Converte para número (evita juntar como string, tipo "2" + "3" que daria "23").
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+
+            //Calculando a soma
+            var s = n1 + n2
+
+            //Muda o conteúdo da div res, mostrando o texto com os valores e o resultado da soma.
+            res.innerHTML = `A soma entre ${n1} e ${n2} é igual a ${s}`
+        }
+    </script>
+
+</body>
+</html>
