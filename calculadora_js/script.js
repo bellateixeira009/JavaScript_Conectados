@@ -1,5 +1,9 @@
 var entrada = '' //a entrada começa vazia mas ela vai guardar o que o usuario digita
 
+function atualizarDisplay(texto) {
+    document.getElementById('display').innerHTML = texto;
+}
+
 function inserir(num) { //(num) é a info que a função recebe. Se a função inserir('7'), o num será 7
 
     var operadores = ['+', '-', '/', '*']
@@ -9,19 +13,19 @@ function inserir(num) { //(num) é a info que a função recebe. Se a função i
         operadores.includes(num)
         
     ) {
-        document.getElementById('display').innerHTML = 'Erro'
-        entrada = ''
-        return
+        atualizarDisplay('Erro');
+        entrada = '';
+        return;
     }
     entrada += num //entradaAtual = entradaAnterior + num 
     //EX: usuario digita 1, ent entrada = '1'. Usuario digita 2, ent entrada = 1 + 2 ---- agr entrada vale 12
-    document.getElementById('display').innerHTML = entrada
+    atualizarDisplay(entrada);
 }
 
 
 function limpar() { //quando clica no botão C, chama a função limpar() que muda o conteúdo do display para uma string vazia, limpando.
     entrada = ''
-    document.getElementById('display').innerHTML = ''
+    atualizarDisplay(entrada);
 }
 
 
@@ -36,7 +40,7 @@ function apagar() { //quando clica no botão da seta, chama a função apagar()
         //OU: entrada.substring(0, entrada.length - 1 [5 -1])
 
 
-    document.getElementById('display').innerHTML = entrada; // atualiza o display
+    atualizarDisplay(entrada);
 }
 
 
@@ -44,11 +48,11 @@ function calcular() {
     if (entrada) { //se a entrada não estiver vazia ela cria uma variavel chamada resultado que guarda o resultado da conta
         var resultado = eval(entrada) //eval() lê o conteudo de entrada como uma conta matemática
         if (resultado == Infinity) { // quando dividia por 0, aparecia Infinity no display, ent coloquei que se aparecer InfiniTy, ele mostra a mensgame erro no display
-            document.getElementById('display').innerHTML = 'Erro'
+            atualizarDisplay('Erro');
             entrada = ''
         } else { //mas se nao der erro, atualiza a entrada para o resultado da conta
             entrada = resultado.toString()
-            document.getElementById('display').innerHTML = entrada
+            atualizarDisplay(entrada);
         }
     }
 }
