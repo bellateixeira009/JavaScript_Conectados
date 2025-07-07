@@ -43,6 +43,7 @@ function renderizar() {
     const span = document.createElement('span');
     span.textContent = '❌';
     span.onclick = (e) => {
+      e.stopPropagation();
       const idx = tarefas.indexOf(tarefa);
       tarefas.splice(idx, 1); // splice apaga 1 item a partir da posição idx.
       salvar();
