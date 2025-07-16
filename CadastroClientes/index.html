@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Sistema de Cadastro de Clientes</h1>
+    <form id="form-cliente">
+        <!-- required - campos obrigatórios -->
+        <input type="text" id="nome" placeholder="Nome" required>
+        <input type="text" id="sobrenome" placeholder="Sobrenome" required>
+        <input type="text" id="celular"  placeholder="Celular" required>
+        <input type="text" id="cep"  placeholder="CEP" required>
+
+        <input type="text" id="logradouro" placeholder="Rua" required>
+        <input type="text" id="numero" placeholder="Número" required>
+        <input type="text" id="bairro" placeholder="Bairro" required>
+        <input type="text" id="cidade" placeholder="Cidade" required>
+        <input type="text" id="uf" placeholder="Estado (UF)" required>
+
+        <div class="buttons">
+            <button type="submit" id="salvar">Salvar</button>
+            <button type="reset">Limpar Formulário</button>
+        </div>
+    </form>
+
+    <h2>Clientes Cadastrados</h2>
+    <div class="filtro-container">
+        <input type="text" id="filtro-nome" placeholder="Filtrar por nome...">
+    </div>
+    <div class="table-container">
+        <table id="tabela-clientes">
+            <thead>
+                <tr>
+                    <th>Nome Completo</th>
+                    <th>Celular</th>
+                    <th>Endereço Completo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+        <tbody id="tabela-clientes-tbody"></tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+
+    <div id="toast-container"></div>   
+</body>
+
+</html>
