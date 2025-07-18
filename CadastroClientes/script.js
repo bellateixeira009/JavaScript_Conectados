@@ -218,5 +218,58 @@ function mostrarToast(mensagem, tipo = 'info') {
 }
 
 
+// ==========================
+// API BUSCAR CEP
+// ==========================
+
+//essa função limpa os campos do formulário
+const limparFormulario = () => {
+    document.getElementById('logradouro').value = ''; 
+    document.getElementById('bairro').value = '';
+    document.getElementById('cidade').value = '';
+    document.getElementById('uf').value = '';
+};
+
+// essa função preenche os campos do formulário com os dados retornados da API
+const preencherFormulario = (endereco) => {
+    document.getElementById('logradouro').value = endereco.logradouro; 
+    document.getElementById('bairro').value = endereco.bairro;
+    document.getElementById('cidade').value = endereco.localidade;
+    document.getElementById('uf').value = endereco.uf; 
+};
+
+// essa função verifica se o que a pessoa digitou tem só números
+const eNumero = (numero) => /^[0-9]+$/.test(numero);
+
+// verifica se o CEP é válido (8 dígitos e só números)
+const cepValido = (cep) => cep.length == 8 && eNumero(cep); 
+
+const pesquisarCep = async () => {
+    limparFormulario(); // limpa o formulário antes de buscar
+    
+    const cepInput = document.getElementById('cep').value.replace("-", ""); 
+    const url = `https://viacep.com.br/ws/${cepInput}/json/`; 
+
+    // usa fetch() para buscar os dados do endereço
+    if (cepValido(cepInput)) { 
+        const dados = await fetch(url);
+        const endereco = await dados.json();
+
+        //se não encontrou:
+        if (endereco.hasOwnProperty('erro')) {
+            document.getElementById('logradouro').value = 'CEP não encontrado!';
+        } // se encontrou, preenche o formulário
+        else {
+            preencherFormulario(endereco);
+        }
+    } // se o CEP não for válido, mostra mensagem de erro
+    else {
+        document.getElementById('logradouro').value = 'CEP incorreto!';
+    }
+};
+// quando o usuário sai do campo CEP, chama a função pesquisarCep
+document.getElementById('cep')
+    .addEventListener('focusout', pesquisarCep);
+
 
 window.onload = () => renderTable();
