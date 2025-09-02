@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.cadastro {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cadastro input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.cadastro input:focus {
+  border-color: #3498db;
+}
+
+.cadastro button {
+  padding: 10px 15px;
+  border: none;
+  background: #3498db;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cadastro button:hover {
+  background: #2980b9;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filtros button {
+  padding: 8px 12px;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.filtros button:nth-child(1) {
+  background: #3498db;
+}
+.filtros button:nth-child(1):hover {
+  background: #2980b9;
+}
+
+.filtros button:nth-child(2) {
+  background: #2ecc71;
+}
+.filtros button:nth-child(2):hover {
+  background: #27ae60;
+}
+
+.filtros button:nth-child(3) {
+  background: #e74c3c;
+}
+.filtros button:nth-child(3):hover {
+  background: #c0392b;
+}
+
+.filtros button:nth-child(4) {
+  background: #9b59b6;
+}
+.filtros button:nth-child(4):hover {
+  background: #8e44ad;
+}
+
+.filtros button:nth-child(5) {
+  background: #f39c12;
+}
+.filtros button:nth-child(5):hover {
+  background: #d35400;
+}
+
+#mediaGeral {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+#listaAlunos {
+  list-style: none;
+  padding: 0;
+  max-width: 500px;
+  margin: auto;
+}
+
+#listaAlunos li {
+  background: white;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#listaAlunos li.aprovado {
+  border-left: 6px solid #2ecc71;
+}
+
+#listaAlunos li.reprovado {
+  border-left: 6px solid #e74c3c;
+}
+
+
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast {
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.toast.info { background: #3498db; }
+.toast.erro { background: #e74c3c; }
+.toast.sucesso { background: #2ecc71; }
+
+@keyframes fadein { from {opacity:0;} to {opacity:1;} }
+@keyframes fadeout { from {opacity:1;} to {opacity:0;} }
